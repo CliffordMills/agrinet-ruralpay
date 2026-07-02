@@ -5,121 +5,40 @@
 
 ---
 
-## Status Legend
-
-| Symbol | Meaning |
-|--------|---------|
-| ⬜ | Not started |
-| 🔄 | In progress |
-| ✅ | Complete |
-| 🚫 | Blocked |
-
----
-
 ## Milestone Overview
 
-| # | Milestone | Status | Branch Target |
-|---|-----------|--------|---------------|
-| M01 | Project Foundation & Tooling | ✅ | claude/nice-thompson-bykx5a |
-| M02 | Database Schema & Migrations | ✅ | claude/nice-thompson-bykx5a |
-| M03 | Authentication & RBAC | ✅ | claude/nice-thompson-bykx5a |
-| M04 | Public Website | 🔄 | claude/nice-thompson-bykx5a |
-| M05 | Farmer Portal | ⬜ | claude/nice-thompson-bykx5a |
-| M06 | Agent Portal | ⬜ | claude/nice-thompson-bykx5a |
-| M07 | Smart AgriHub Management | ⬜ | claude/nice-thompson-bykx5a |
-| M08 | Marketplace | ⬜ | claude/nice-thompson-bykx5a |
-| M09 | Finance Engine | ⬜ | claude/nice-thompson-bykx5a |
-| M10 | Payment Engine | ⬜ | claude/nice-thompson-bykx5a |
-| M11 | Traceability Engine | ⬜ | claude/nice-thompson-bykx5a |
-| M12 | Climate Intelligence Engine | ⬜ | claude/nice-thompson-bykx5a |
-| M13 | Executive Dashboard | ⬜ | claude/nice-thompson-bykx5a |
-| M14 | Notifications & Integrations | ⬜ | claude/nice-thompson-bykx5a |
-| M15 | DevOps, Testing & Seed Data | ⬜ | claude/nice-thompson-bykx5a |
+| # | Milestone | Status |
+|---|-----------|--------|
+| M01 | Project Foundation & Tooling | ✅ |
+| M02 | Database Schema & Migrations | ✅ |
+| M03 | Authentication & RBAC | ✅ |
+| M04 | Public Website | ✅ |
+| M05 | Farmer Portal | 🔄 |
+| M06 | Agent Portal | ⬜ |
+| M07 | Smart AgriHub Management | ⬜ |
+| M08 | Marketplace | ⬜ |
+| M09 | Finance Engine | ⬜ |
+| M10 | Payment Engine | ⬜ |
+| M11 | Traceability Engine | ⬜ |
+| M12 | Climate Intelligence Engine | ⬜ |
+| M13 | Executive Dashboard | ⬜ |
+| M14 | Notifications & Integrations | ⬜ |
+| M15 | DevOps, Testing & Seed Data | ⬜ |
 
 ---
 
-## M01 — Project Foundation & Tooling ✅
+## Completed Milestones
 
-**Status: ✅ COMPLETE** (SHA: 5f5a9b6)
-
----
-
-## M02 — Database Schema & Migrations ✅
-
-**Status: ✅ COMPLETE** (SHA: 4f52bb4)
-
-20 migration files (001–020) + seed.sql with Ghana agricultural data.
+- **M01** ✅ SHA: 5f5a9b6 — Next.js 16 foundation, 19 UI components, Supabase clients, Zustand stores, CI/Docker
+- **M02** ✅ SHA: 4f52bb4 — 20 migration files (001–020) + seed.sql, full RLS, triggers, Ghana seed data
+- **M03** ✅ SHA: 717f9e9 — Auth pages (login/register/forgot/reset/verify), RoleGuard, edge fn, middleware
+- **M04** ✅ SHA: ce3ac3d — Public website: Navbar, Footer, 10 pages, 8 components (Hero, Stats, Timeline, etc.)
 
 ---
 
-## M03 — Authentication & RBAC ✅
+## M05 — Farmer Portal 🔄
 
-**Status: ✅ COMPLETE** (SHA: 717f9e9)
-
-**Delivered:**
-- [x] `src/app/(auth)/layout.tsx` — split-panel auth layout with branding
-- [x] `src/app/(auth)/login/page.tsx`
-- [x] `src/app/(auth)/register/page.tsx`
-- [x] `src/app/(auth)/forgot-password/page.tsx`
-- [x] `src/app/(auth)/reset-password/page.tsx`
-- [x] `src/app/(auth)/verify/page.tsx`
-- [x] `src/components/auth/LoginForm.tsx` — Zod + RHF, role-aware redirect
-- [x] `src/components/auth/RegisterForm.tsx` — 4-role picker, Ghana phone validation
-- [x] `src/components/auth/RoleGuard.tsx` — client-side role enforcement
-- [x] `src/lib/auth/session.ts` — server-side session helpers
-- [x] `src/lib/auth/rbac.ts` — permission checker, dashboard router
-- [x] `src/lib/auth/roles.ts` — permission matrix per role
-- [x] `src/hooks/useAuth.ts` — Supabase auth state subscription
-- [x] `src/hooks/usePermissions.ts` — `can()` / `canAny()` hooks
-- [x] `supabase/functions/on-user-created/index.ts` — edge fn: set app_metadata role + permissions
-- [x] `src/app/unauthorized/page.tsx`
-- [x] `middleware.ts` updated — reads app_metadata.role (secure), preserves `next` param
-
----
-
-## M04 — Public Website
-
-**Objective:** Build the fully responsive public marketing website with landing page, interactive Ghana map, and lead-capture forms.
-
-**Deliverables:**
-- [ ] `src/app/(public)/layout.tsx`
-- [ ] `src/app/(public)/page.tsx` — Home
-- [ ] `src/app/(public)/about/page.tsx`
-- [ ] `src/app/(public)/how-it-works/page.tsx`
-- [ ] `src/app/(public)/solutions/page.tsx`
-- [ ] `src/app/(public)/impact/page.tsx`
-- [ ] `src/app/(public)/partners/page.tsx`
-- [ ] `src/app/(public)/pricing/page.tsx`
-- [ ] `src/app/(public)/faq/page.tsx`
-- [ ] `src/app/(public)/contact/page.tsx`
-- [ ] `src/app/(public)/book-demo/page.tsx`
-- [ ] `src/components/public/Navbar.tsx`
-- [ ] `src/components/public/Footer.tsx`
-- [ ] `src/components/public/HeroSection.tsx`
-- [ ] `src/components/public/StatsSection.tsx`
-- [ ] `src/components/public/HowItWorksTimeline.tsx`
-- [ ] `src/components/public/TestimonialsCarousel.tsx`
-- [ ] `src/components/public/ImpactMetrics.tsx`
-- [ ] `src/components/public/PricingCards.tsx`
-- [ ] `src/components/public/FAQAccordion.tsx`
-- [ ] `src/components/public/NewsletterForm.tsx`
-- [ ] `src/components/public/BookDemoForm.tsx`
-
-**Dependencies:** M01, M03
-
-**Success Criteria:**
-- All pages render at mobile (375px), tablet (768px), desktop (1440px)
-- Newsletter and demo forms save to Supabase
-- Dark/light mode works across all pages
-- No TypeScript errors
-
-**Estimated Files:** ~25 files
-
----
-
-## M05 — Farmer Portal
-
-**Objective:** Farmer-facing portal with digital identity, wallet, sales history, climate alerts, and loan eligibility.
+**Objective:** Farmer-facing portal: digital identity, wallet, sales history, climate alerts, loan eligibility, credit score.
 
 **Deliverables:**
 - [ ] `src/app/(farmer)/layout.tsx`
@@ -146,9 +65,7 @@
 
 ---
 
-## M06 — Agent Portal
-
-**Objective:** Agent portal for farmer onboarding, procurement, grading, payment initiation.
+## M06 — Agent Portal ⬜
 
 **Deliverables:**
 - [ ] `src/app/(agent)/layout.tsx`
@@ -176,9 +93,7 @@
 
 ---
 
-## M07 — Smart AgriHub Management
-
-**Objective:** Hub management dashboard with IoT monitoring, storage tracking, and environmental sensors.
+## M07 — Smart AgriHub Management ⬜
 
 **Deliverables:**
 - [ ] `src/app/(hub)/layout.tsx`
@@ -201,9 +116,7 @@
 
 ---
 
-## M08 — Marketplace
-
-**Objective:** Commodity marketplace with bidding, forward contracts, and purchase orders.
+## M08 — Marketplace ⬜
 
 **Deliverables:**
 - [ ] `src/app/(marketplace)/layout.tsx`
@@ -225,9 +138,7 @@
 
 ---
 
-## M09 — Finance Engine
-
-**Objective:** Embedded finance: credit scoring, loans, insurance, warehouse receipt financing.
+## M09 — Finance Engine ⬜
 
 **Deliverables:**
 - [ ] `src/app/(finance)/layout.tsx`
@@ -249,9 +160,7 @@
 
 ---
 
-## M10 — Payment Engine
-
-**Objective:** Payment processing with MTN MoMo, Telecel Cash, AirtelTigo Money, bank transfers.
+## M10 — Payment Engine ⬜
 
 **Deliverables:**
 - [ ] `src/lib/payments/providers/mtn.ts`
@@ -272,9 +181,7 @@
 
 ---
 
-## M11 — Traceability Engine
-
-**Objective:** End-to-end commodity traceability with QR generation, scan pages, audit trail.
+## M11 — Traceability Engine ⬜
 
 **Deliverables:**
 - [ ] `src/lib/traceability/qrGenerator.ts`
@@ -291,9 +198,7 @@
 
 ---
 
-## M12 — Climate Intelligence Engine
-
-**Objective:** Weather forecasts, pest/drought alerts, NDVI, yield predictions.
+## M12 — Climate Intelligence Engine ⬜
 
 **Deliverables:**
 - [ ] `src/lib/climate/openWeather.ts`
@@ -315,9 +220,7 @@
 
 ---
 
-## M13 — Executive Dashboard
-
-**Objective:** National analytics with GIS maps, commodity flow, payment analytics, KPIs.
+## M13 — Executive Dashboard ⬜
 
 **Deliverables:**
 - [ ] `src/app/(admin)/layout.tsx`
@@ -338,9 +241,7 @@
 
 ---
 
-## M14 — Notifications & Integrations
-
-**Objective:** Multi-channel notifications: SMS (Twilio), WhatsApp Cloud API, in-app real-time.
+## M14 — Notifications & Integrations ⬜
 
 **Deliverables:**
 - [ ] `src/lib/notifications/twilio.ts`
@@ -359,9 +260,7 @@
 
 ---
 
-## M15 — DevOps, Testing & Seed Data
-
-**Objective:** CI/CD pipeline, test suites for critical paths, finalize seed data.
+## M15 — DevOps, Testing & Seed Data ⬜
 
 **Deliverables:**
 - [ ] `.github/workflows/deploy.yml`
@@ -369,7 +268,6 @@
 - [ ] `src/__tests__/lib/creditScoring.test.ts`
 - [ ] `src/__tests__/lib/paymentEngine.test.ts`
 - [ ] `src/__tests__/api/payments.test.ts`
-- [ ] `src/__tests__/api/procurement.test.ts`
 - [ ] `e2e/farmer-registration.spec.ts`
 - [ ] `e2e/procurement-flow.spec.ts`
 - [ ] `e2e/payment-flow.spec.ts`
@@ -381,14 +279,11 @@
 
 ## Progress Log
 
-| Date | Milestone | Action | Commit |
-|------|-----------|--------|--------|
-| 2026-06-21 | Governance | Created TASKS.md, ARCHITECTURE.md, PRODUCT_REQUIREMENTS.md | — |
-| 2026-07-02 | M01 | Project Foundation & Tooling complete | 5f5a9b6 |
-| 2026-07-02 | M02 | Database Schema & Migrations complete | 4f52bb4 |
-| 2026-07-02 | M03 | Authentication & RBAC complete | 717f9e9 |
+| Date | Milestone | Commit |
+|------|-----------|--------|
+| 2026-07-02 | M01 | 5f5a9b6 |
+| 2026-07-02 | M02 | 4f52bb4 |
+| 2026-07-02 | M03 | 717f9e9 |
+| 2026-07-02 | M04 | ce3ac3d |
 
----
-
-*Last updated: 2026-07-02*
-*Next action: M04 — Public Website*
+*Last updated: 2026-07-02 — Next: M05 Farmer Portal*
