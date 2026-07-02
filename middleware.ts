@@ -15,13 +15,15 @@ export async function middleware(request: NextRequest) {
   const { supabaseResponse, user } = await updateSession(request);
   const { pathname } = request.nextUrl;
 
-  const isAuthRoute = pathname.startsWith("/login") ||
+  const isAuthRoute =
+    pathname.startsWith("/login") ||
     pathname.startsWith("/register") ||
     pathname.startsWith("/forgot-password") ||
     pathname.startsWith("/reset-password") ||
     pathname.startsWith("/verify");
 
-  const isPublicRoute = pathname === "/" ||
+  const isPublicRoute =
+    pathname === "/" ||
     pathname.startsWith("/about") ||
     pathname.startsWith("/how-it-works") ||
     pathname.startsWith("/solutions") ||
@@ -32,6 +34,7 @@ export async function middleware(request: NextRequest) {
     pathname.startsWith("/contact") ||
     pathname.startsWith("/book-demo") ||
     pathname.startsWith("/trace") ||
+    pathname.startsWith("/unauthorized") ||
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api/payments/webhook");
 
@@ -45,7 +48,9 @@ export async function middleware(request: NextRequest) {
   }
 
   if (!user) {
-    return NextResponse.redirect(new URL("/login", request.url));
+    const loginUrl = new URL("/login", request.url);
+    loginUrl.searchParams.set("next", pathname);
+    return NextResponse.redirect(loginUrl);
   }
 
   const protectedPrefix = Object.keys(ROLE_ROUTES).find((prefix) =>
@@ -54,7 +59,11 @@ export async function middleware(request: NextRequest) {
 
   if (protectedPrefix) {
     const allowedRoles = ROLE_ROUTES[protectedPrefix];
-    const userRole = (user.user_metadata?.role as string) || "";
+    // Prefer app_metadata (set by edge function) over user_metadata for security
+    const userRole =
+      (user.app_metadata?.role as string) ||
+      (user.user_metadata?.role as string) ||
+      "FARMER";
 
     if (!allowedRoles.includes(userRole)) {
       return NextResponse.redirect(new URL("/unauthorized", request.url));
