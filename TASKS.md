@@ -13,20 +13,18 @@
 ## M11 — Traceability Engine ✅
 ## M12 — Climate Intelligence Engine ✅
 ## M13 — Executive Dashboard ✅
+## M14 — Notifications & Integrations ✅
 
-## M14 — Notifications & Integrations 🔄
-- `src/lib/notifications/notificationService.ts` ✅
-- `src/lib/sms/twilioClient.ts` ✅
-- `NotificationBell` component ✅
-- `NotificationDrawer` component ✅
-- `NotificationItem` component ✅
-- GET+POST /api/notifications ✅
-- PATCH /api/notifications/[id]/read ✅
-- PATCH /api/notifications/mark-all-read ✅
-- POST /api/sms/send ✅
+## M15 — DevOps, Testing & Seed Data ✅
+- `.github/workflows/ci.yml` — lint + typecheck + unit tests
+- `.github/workflows/deploy.yml` — Vercel production deploy
+- `.github/workflows/supabase-migrate.yml` — DB migrations on push
+- `jest.config.ts` + 4 unit test suites
+- `playwright.config.ts` + 2 e2e spec files
+- `scripts/seed.ts` — regions, districts, commodities, grades, hubs, listings
 
-## M15 — DevOps, Testing & Seed Data ⬜
-- GitHub Actions deploy / supabase-migrate workflows
-- Jest unit tests
-- Playwright e2e tests
-- Enhanced seed script
+---
+
+## 🎉 ALL 15 MILESTONES COMPLETE
+
+Branch: `claude/nice-thompson-bykx5a`
