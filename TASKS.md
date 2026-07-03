@@ -49,27 +49,28 @@
 - Contract list + printable contract viewer
 - POST /api/marketplace/bids with stock validation
 
-## M09 — Finance Engine 🔄
-- `src/lib/finance/creditScoring.ts` ✅
-- `src/lib/finance/loanCalculator.ts` ✅
-- `CreditScoreCard` component ✅
-- `LoanApplicationForm` component ✅
-- `LoanRepaymentSchedule` component ✅
-- `(finance)` layout ✅
-- Credit score history page ✅
-- Loan list page ✅
-- New loan application page ✅
-- Loan detail + schedule page ✅
-- Insurance policies page ✅
-- GET /api/finance/credit ✅
-- GET+POST /api/finance/loans ✅
+## M09 — Finance Engine ✅
+- `src/lib/finance/creditScoring.ts`
+- `src/lib/finance/loanCalculator.ts`
+- `CreditScoreCard` component
+- `LoanApplicationForm` component
+- `LoanRepaymentSchedule` component
+- `(finance)` layout
+- Credit score history page
+- Loan list page
+- New loan application page
+- Loan detail + schedule page
+- Insurance policies page
+- GET /api/finance/credit
+- GET+POST /api/finance/loans
 
-## M10 — Payment Engine ⬜
-- MTN / Telecel / AirtelTigo / Bank abstractions
-- `src/lib/payments/paymentEngine.ts`
-- Webhook handler
-- Payment status polling
-- API routes
+## M10 — Payment Engine 🔄
+- `src/lib/payments/providers.ts` — phone-prefix provider detection ✅
+- `src/lib/payments/paymentEngine.ts` — build/initiate/poll abstractions ✅
+- POST /api/payments/initiate ✅
+- GET /api/payments/status/[reference] ✅
+- POST /api/payments/webhook ✅
+- GET /api/payments/history ✅
 
 ## M11 — Traceability Engine ⬜
 - `src/lib/qr/qrGenerator.ts`
