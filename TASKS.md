@@ -12,21 +12,18 @@
 ## M10 — Payment Engine ✅
 ## M11 — Traceability Engine ✅
 ## M12 — Climate Intelligence Engine ✅
+## M13 — Executive Dashboard ✅
 
-## M13 — Executive Dashboard 🔄
-- `AdminSidebar` component ✅
-- `KPICard` component ✅
-- `(admin)` layout ✅
-- National KPI dashboard ✅
-- Regional analytics page ✅
-- Payment analytics page ✅
-- Commodity analytics page ✅
-
-## M14 — Notifications & Integrations ⬜
-- Twilio SMS / WhatsApp
-- In-app notification system
-- `NotificationBell`, `NotificationDrawer`, `NotificationItem`
-- Edge functions
+## M14 — Notifications & Integrations 🔄
+- `src/lib/notifications/notificationService.ts` ✅
+- `src/lib/sms/twilioClient.ts` ✅
+- `NotificationBell` component ✅
+- `NotificationDrawer` component ✅
+- `NotificationItem` component ✅
+- GET+POST /api/notifications ✅
+- PATCH /api/notifications/[id]/read ✅
+- PATCH /api/notifications/mark-all-read ✅
+- POST /api/sms/send ✅
 
 ## M15 — DevOps, Testing & Seed Data ⬜
 - GitHub Actions deploy / supabase-migrate workflows
